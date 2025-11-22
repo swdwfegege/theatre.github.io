@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Cinematic Theatre Hub - Lobby</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        /* Use a dark background when not in the lobby view */
+        background-color: #0a0a0a;
+        font-family: "Inter", sans-serif;
+        height: 100vh;
+        overflow: hidden; /* Prevent scrolling on lobby screen */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Outer container for the whole stage/screen, adding the gold frame */
+      #theatre-frame {
+        height: 95vh;
+        width: 95vw;
+        max-width: 1400px;
+        border: 10px solid #fde047; /* Gold frame */
+        box-shadow: 0 0 50px rgba(253, 224, 71, 0.5); /* Soft outer glow */
+        border-radius: 1rem;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* --- LOBBY VIEW STYLES (Curtain) --- */
+      #lobby-view {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* Deep red color */
+        background-color: #7f1d1d; /* bg-red-800 equivalent */
+
+        /* Vertical stripes (drapery effect) using a repeating linear gradient */
+        background-image: repeating-linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.2) 0px,
+          rgba(0, 0, 0, 0.2) 2px,
+          transparent 2px,
+          transparent 4px
+        );
+        /* Add deep shadow for a folded look */
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+      }
+
+      .theatre-title {
+        font-family: "Times New Roman", Times, serif; /* Classic, dramatic font */
+        text-shadow: 4px 4px 6px #000, 0 0 10px #fde047; /* Black shadow and soft glow */
+        letter-spacing: 0.5rem;
+        animation: pulse 4s infinite ease-in-out;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.95;
+        }
+        50% {
+          transform: scale(1.03);
+          opacity: 1;
+        }
+      }
+
+      /* Generic style for anchor link acting as a button */
+      .theatre-interactive {
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px #450a0a,
+          /* Dark shadow for depth */ 0 0 15px rgba(253, 224, 71, 0.7); /* Soft yellow glow */
+        background-color: #fde047; /* bg-yellow-400 */
+        color: #7f1d1d; /* text-red-900 */
+        font-weight: 800; /* font-extrabold */
+        padding: 0.75rem 2rem; /* py-3 px-8 */
+        border-radius: 0.75rem; /* rounded-xl */
+        text-align: center;
+        text-decoration: none; /* Remove underline from link */
+      }
+      .theatre-interactive:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px #450a0a, 0 0 20px rgba(253, 224, 71, 1);
+        background-color: #fcd34d; /* hover:bg-yellow-300 */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Outer frame for the cinematic border -->
+    <div id="theatre-frame">
+      <!-- LOBBY VIEW (Curtain) -->
+      <div id="lobby-view">
+        <!-- The Main Title -->
+        <div class="mb-12">
+          <h1
+            class="theatre-title text-5xl sm:text-7xl lg:text-9xl font-bold uppercase text-yellow-300 select-none"
+          >
+            THEATRE
+          </h1>
+        </div>
+
+        <!-- Navigation Links -->
+        <div
+          class="flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-8"
+        >
+          <!-- Movies Link (Placeholder) -->
+          <a href="movies.html" class="theatre-interactive"> Movies </a>
+
+          <!-- TV Shows Link (Placeholder) -->
+          <a href="tvshows.html" class="theatre-interactive"> TV Shows </a>
+
+          <!-- YouTube Link - Links to the previously created video page -->
+          <a href="youtube.html" class="theatre-interactive"> Youtube </a>
+        </div>
+
+        <!-- Subtle Footer Text -->
+        <div
+          class="absolute bottom-4 text-center text-red-300 text-sm opacity-75"
+        >
+          Roll the credits... or pick your next show.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
